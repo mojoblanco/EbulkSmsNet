@@ -10,7 +10,7 @@ namespace EbulkSmsNet
 {
     public static class EbulkSmsClient
     {
-        public static async Task<string> SendMessage(EbulkSmsAuth auth, string phoneNumber, string message)
+        public static async Task<SmsResponse> SendMessageAsync(EbulkSmsAuth auth, string phoneNumber, string message)
         {
             using (var client = new HttpClient())
             {
@@ -23,7 +23,9 @@ namespace EbulkSmsNet
                 var result = await client.PostAsync("sendsms.json", content);
                 string resultContent = await result.Content.ReadAsStringAsync();
 
-                return resultContent;
+                var response = JsonConvert.DeserializeObject<SmsResponse>(resultContent);
+
+                return response;
             }
 
         }
