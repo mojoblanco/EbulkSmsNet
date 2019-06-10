@@ -21,9 +21,7 @@ var auth = new EbulkSmsAuth
     Sender = [sender],
     UserName = [username]
 };
-```
 
-```csharp
 var result = await EbulkSmsClient.SendMessageAsync(auth, phoneNumber, message);
 ```
 
