@@ -17,9 +17,9 @@ A .NET core client for sending sms via EbulkSms Nigeria.
 ```csharp
 var auth = new EbulkSmsAuth
 {
-    ApiKey = apiKey,
-    Sender = sender,
-    UserName = userName
+    ApiKey = [apiKey],
+    Sender = [sender],
+    UserName = [username]
 };
 ```
 
